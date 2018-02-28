@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
-		GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+		GetComponent<Rigidbody2D>().velocity = transform.right * speed;
 		Invoke("DestroyBullet", 2);
 	}
 

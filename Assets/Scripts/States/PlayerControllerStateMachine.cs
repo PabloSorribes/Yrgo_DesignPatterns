@@ -7,11 +7,18 @@ using States;
 public class PlayerControllerStateMachine : MonoBehaviour
 {
 	private ICharacterState state = new GroundedCharacterState();
+	private BulletObjectPool bulletPool;
+
+	private void Start()
+	{
+		bulletPool = FindObjectOfType<BulletObjectPool>();
+	}
 
 	public void Update()
 	{
 		JumpInput();
 		MoveInput();
+
 		UpdateState();
 	}
 
@@ -25,14 +32,6 @@ public class PlayerControllerStateMachine : MonoBehaviour
 	{
 		float inputX = Input.GetAxisRaw("Horizontal");
 		state = state.Move(inputX);
-	}
-
-	private void ShootInput()
-	{
-		if (Input.GetButtonDown("Fire1"))
-		{
-			//TODO: Add shoot-input functionality
-		}
 	}
 
 	/// <summary>

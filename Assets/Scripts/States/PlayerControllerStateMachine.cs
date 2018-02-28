@@ -27,11 +27,19 @@ public class PlayerControllerStateMachine : MonoBehaviour
 		state = state.Move(inputX);
 	}
 
+	private void ShootInput()
+	{
+		if (Input.GetButtonDown("Fire1"))
+		{
+			//TODO: Add shoot-input functionality
+		}
+	}
+
 	/// <summary>
 	/// Has to be at the end of an Update()-loop to update the state everywhere correctly.
 	/// </summary>
 	private void UpdateState()
 	{
-		state = state.Update(transform);
+		state = state.UpdateState(transform);
 	}
 }

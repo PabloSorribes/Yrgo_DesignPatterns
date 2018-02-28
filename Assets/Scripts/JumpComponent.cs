@@ -12,7 +12,9 @@ public class JumpComponent : MonoBehaviour
 
     public void Update()
     {
-        if (onGround)
+		float inputX = Input.GetAxisRaw("Horizontal");
+
+		if (onGround)
         {
             // Allow jumping if we are standing on the ground, but not already jumping
             if (Input.GetButtonDown("Jump") && !jumping)
@@ -21,6 +23,9 @@ public class JumpComponent : MonoBehaviour
                 jumping = true;
                 velocity = new Vector3(0, 2, 0);
             }
+
+			velocity.x = inputX;
+			
         }
         else
         {

@@ -11,7 +11,7 @@ namespace States
 		ICharacterState Jump();
 
 		/// <summary>
-		/// Movement behaviour.
+		/// Needs a float to return value for usage in moving the character in the states that allow it.
 		/// </summary>
 		/// <returns></returns>
 		ICharacterState Move(float xDirection);
@@ -21,6 +21,6 @@ namespace States
 		/// </summary>
 		/// <param name="transform">The owner object's transformation</param>
 		/// <returns>The new state resulted from the update</returns>
-		ICharacterState Update(Transform transform);
+		ICharacterState UpdateState(Transform transform);
 	}
 }

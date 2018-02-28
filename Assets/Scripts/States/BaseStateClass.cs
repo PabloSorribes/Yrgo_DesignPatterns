@@ -17,8 +17,13 @@ public abstract class BaseStateClass : MonoBehaviour, ICharacterState
 		return this;
 	}
 
-	public virtual ICharacterState Update(Transform transform)
+	public virtual ICharacterState UpdateState(Transform transform)
 	{
 		return this;
+	}
+
+	public virtual void Shoot()
+	{
+		//TODO: Add default behaviour for spawning a bullet.
 	}
 }

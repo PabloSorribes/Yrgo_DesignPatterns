@@ -18,7 +18,7 @@ namespace States
 			return this;
 		}
 
-		public override ICharacterState Update(Transform transform)
+		public override ICharacterState UpdateState(Transform transform)
 		{
 			transform.position += velocity * Time.deltaTime * speed;
 			return this;

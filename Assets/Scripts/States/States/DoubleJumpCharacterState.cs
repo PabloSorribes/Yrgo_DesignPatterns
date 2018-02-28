@@ -10,7 +10,7 @@ namespace States
 			velocity = initialVelocity;
 		}
 
-		public override ICharacterState Update(Transform transform)
+		public override ICharacterState UpdateState(Transform transform)
 		{
 			transform.position += velocity * Time.deltaTime;
 			velocity -= GameProperties.Gravity * Time.deltaTime;

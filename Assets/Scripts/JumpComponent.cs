@@ -6,6 +6,7 @@
 public class JumpComponent : MonoBehaviour
 {
 	private Vector3 velocity = Vector3.zero;
+	private float speed = 10;
     private bool onGround = true;
     private bool jumping = false;
     private bool doubleJumping = false;
@@ -16,6 +17,13 @@ public class JumpComponent : MonoBehaviour
 
 		if (onGround)
         {
+			// Movement on ground
+			if (inputX != 0)
+			{
+				velocity.x = inputX;
+				transform.position += velocity * Time.deltaTime * speed;
+			}
+
             // Allow jumping if we are standing on the ground, but not already jumping
             if (Input.GetButtonDown("Jump") && !jumping)
             {
@@ -23,9 +31,6 @@ public class JumpComponent : MonoBehaviour
                 jumping = true;
                 velocity = new Vector3(0, 2, 0);
             }
-
-			velocity.x = inputX;
-			
         }
         else
         {

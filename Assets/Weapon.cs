@@ -23,6 +23,11 @@ public class Weapon : MonoBehaviour
 		{
 			var newBullet = bulletPool.CreateBullet();
 			newBullet.transform.position = transform.position;
+
+			if (Input.GetAxisRaw("Horizontal") < 0)
+			{
+				//newBullet.transform.SetPositionAndRotation(this.transform.rotation, Quaternion.EulerRotation();
+			}
 		}
 	}
 }

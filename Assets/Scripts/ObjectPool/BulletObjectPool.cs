@@ -9,6 +9,15 @@ public class BulletObjectPool : MonoBehaviour {
 
 	private LinkedList<GameObject> freeBullets = new LinkedList<GameObject>();
 
+	private void Start()
+	{
+		for (int i = 0; i < maxBullets; i++)
+		{
+			var newBullet = CreateBullet();
+			newBullet.SetActive(false);
+		}
+	}
+
 	private void OnDisable()
 	{
 		foreach (var bullet in freeBullets)

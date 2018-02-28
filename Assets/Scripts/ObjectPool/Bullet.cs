@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
-
+public class Bullet : MonoBehaviour
+{
 	public float speed;
 	private BulletObjectPool bulletPool;
+
+	// Use this for initialization
+	private void OnEnable()
+	{
+		GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+	}
 
 	private void Start()
 	{
 		bulletPool = FindObjectOfType<BulletObjectPool>();
-	}
-
-	// Use this for initialization
-	void OnEnable () {
-		GetComponent<Rigidbody2D>().velocity = transform.right * speed;
 		Invoke("DestroyBullet", 2);
 	}
 

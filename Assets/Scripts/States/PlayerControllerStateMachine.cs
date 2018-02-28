@@ -7,12 +7,7 @@ using States;
 public class PlayerControllerStateMachine : MonoBehaviour
 {
 	private ICharacterState state = new GroundedCharacterState();
-	private BulletObjectPool bulletPool;
-
-	private void Start()
-	{
-		bulletPool = FindObjectOfType<BulletObjectPool>();
-	}
+	
 
 	public void Update()
 	{

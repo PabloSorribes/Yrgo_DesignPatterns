@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 	private void Start()
 	{
 		bulletPool = FindObjectOfType<BulletObjectPool>();
-		Invoke("DestroyBullet", 2);
+		Invoke("DestroyBullet", 2f);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

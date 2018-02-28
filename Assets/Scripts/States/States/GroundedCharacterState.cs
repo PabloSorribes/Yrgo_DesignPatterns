@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 namespace States
 {
-	public class GroundedCharacterState : ICharacterState {
+	public class GroundedCharacterState : BaseStateClass
+	{
 
-		public ICharacterState Jump()
+		private Vector3 velocity;
+		private float speed = 10;
+
+		public override ICharacterState Jump()
 		{
-			return new JumpCharacterState(new Vector3(0,2,0));
+			return new JumpCharacterState(new Vector3(0, 2, 0));
 		}
 
-		public ICharacterState Update(Transform transform)
+		public override ICharacterState Move(float xDirection)
 		{
+			velocity.x = xDirection;
+			return this;
+		}
+
+		public override ICharacterState Update(Transform transform)
+		{
+			transform.position += velocity * Time.deltaTime * speed;
 			return this;
 		}
 	}

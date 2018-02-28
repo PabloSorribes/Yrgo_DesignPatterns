@@ -5,7 +5,7 @@
 /// </summary>
 public class JumpComponent : MonoBehaviour
 {
-    private Vector3 velocity = Vector3.zero;
+	private Vector3 velocity = Vector3.zero;
     private bool onGround = true;
     private bool jumping = false;
     private bool doubleJumping = false;

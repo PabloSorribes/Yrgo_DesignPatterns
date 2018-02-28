@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 namespace States
 {
-	public class JumpCharacterState : ICharacterState
+	public class JumpCharacterState : BaseStateClass
 	{
 		private Vector3 velocity;
 		public JumpCharacterState(Vector3 initialVelocity)
@@ -9,12 +9,12 @@ namespace States
 			velocity = initialVelocity;
 		}
 
-		public ICharacterState Jump()
+		public override ICharacterState Jump()
 		{
 			return new DoubleJumpCharacterState(new Vector3(0, 2, 0));
 		}
 
-		public ICharacterState Update(Transform transform)
+		public override ICharacterState Update(Transform transform)
 		{
 			transform.position += velocity * Time.deltaTime;
 			velocity -= GameProperties.Gravity * Time.deltaTime;

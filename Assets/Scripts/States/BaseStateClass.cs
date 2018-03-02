@@ -23,17 +23,16 @@ namespace States
 			var newBullet = bulletPool.CreateBullet();
 			newBullet.transform.position = position;
 
-			//TODO: Rotate the bullet depending on which direction you are walking in.
+			//TODO: Rotate the bullet depending on which direction you are walking in here, instead of in Bullet.cs
 			if (Input.GetAxisRaw("Horizontal") < 0)
 			{
-				//newBullet.transform.SetPositionAndRotation(this.transform.rotation, Quaternion.EulerRotation();
+				//Code
 			}
 			return this;
 		}
 
 		public virtual ICharacterState Crouch(float initialVelocity)
 		{
-
 			return this;
 		}
 

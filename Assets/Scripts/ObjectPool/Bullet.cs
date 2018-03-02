@@ -10,7 +10,13 @@ public class Bullet : MonoBehaviour
 	// Use this for initialization
 	private void OnEnable()
 	{
-		GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+		float inputX = Input.GetAxisRaw("Horizontal");
+		if (inputX == 0)
+		{
+			inputX = 1f;
+		}
+
+		GetComponent<Rigidbody2D>().velocity = inputX * transform.right * speed;
 	}
 
 	private void Start()

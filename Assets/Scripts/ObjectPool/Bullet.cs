@@ -17,12 +17,13 @@ public class Bullet : MonoBehaviour
 		}
 
 		GetComponent<Rigidbody2D>().velocity = inputX * transform.right * speed;
+
+		Invoke("DestroyBullet", 2f);
 	}
 
 	private void Start()
 	{
 		bulletPool = FindObjectOfType<BulletObjectPool>();
-		Invoke("DestroyBullet", 2f);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -32,8 +33,11 @@ public class Bullet : MonoBehaviour
 
 	private void DestroyBullet()
 	{
-		CancelInvoke("DestroyBullet");
 		bulletPool.DestroyBullet(gameObject);
 	}
 
+	private void OnDisable()
+	{
+		CancelInvoke("DestroyBullet");
+	}
 }

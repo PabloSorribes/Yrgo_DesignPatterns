@@ -10,18 +10,13 @@ namespace States
 		public CrouchCharacterState (float initialVelocity)
 		{
 			velocity.x = initialVelocity;
+			//TODO: Crouching here (scale character / change the sprite, etc)
 		}
 
 		// Take the inputed direction and save it to be used in "UpdateState()".
 		public override ICharacterState Move(float xDirection)
 		{
 			velocity.x = xDirection / 2;
-			return this;
-		}
-
-		public override ICharacterState Crouch(float initialVelocity)
-		{
-			//TODO: Crouching here (scale shit)
 			return this;
 		}
 

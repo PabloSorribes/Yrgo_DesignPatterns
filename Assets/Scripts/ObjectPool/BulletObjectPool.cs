@@ -45,7 +45,7 @@ public class BulletObjectPool : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Is called by the Bullet.cs when.
+	/// Is called by the Bullet.cs when it should get destroyed by several factors.
 	/// </summary>
 	/// <param name="bullet"></param>
 	public void DestroyBullet(GameObject bullet)

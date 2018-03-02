@@ -1,36 +1,38 @@
 ﻿using UnityEngine;
+
 namespace States
 {
-	public class GroundedCharacterState : BaseStateClass
+	public class CrouchCharacterState : BaseStateClass
 	{
-
 		private Vector3 velocity;
 		private float speed = 10;
 
-		/// <summary>
-		/// Sets the new state to "Jump".
-		/// </summary>
-		/// <returns></returns>
-		public override ICharacterState Jump()
+		public CrouchCharacterState (float initialVelocity)
 		{
-			return new JumpCharacterState(new Vector3(0, 2, 0));
+			velocity.x = initialVelocity;
 		}
 
 		// Take the inputed direction and save it to be used in "UpdateState()".
 		public override ICharacterState Move(float xDirection)
 		{
-			velocity.x = xDirection;
+			velocity.x = xDirection / 2;
 			return this;
 		}
 
 		public override ICharacterState Crouch(float initialVelocity)
 		{
-			return new CrouchCharacterState(initialVelocity);
+			//TODO: Crouching here (scale shit)
+			return this;
 		}
 
 		public override ICharacterState UpdateState(Transform transform)
 		{
 			transform.position += velocity * Time.deltaTime * speed;
+
+			if (Input.GetKeyUp(KeyCode.S))
+			{
+				return new GroundedCharacterState();
+			}
 			return this;
 		}
 	}

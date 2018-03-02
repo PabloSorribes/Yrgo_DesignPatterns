@@ -17,6 +17,17 @@ namespace States
 		ICharacterState Move(float xDirection);
 
 		/// <summary>
+		/// Ability to shoot in every state. Should get the spawn position.
+		/// </summary>
+		/// <param name="bulletPool"></param>
+		/// <param name="position"></param>
+		/// <returns></returns>
+		ICharacterState Shoot(BulletObjectPool bulletPool, Vector3 position);
+
+
+		ICharacterState Crouch(float initialVelocity);
+
+		/// <summary>
 		/// Update the state's internal properties
 		/// </summary>
 		/// <param name="transform">The owner object's transformation</param>

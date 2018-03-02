@@ -6,13 +6,20 @@ using States;
 /// </summary>
 public class PlayerControllerStateMachine : MonoBehaviour
 {
-	private ICharacterState state = new GroundedCharacterState();
-	
+	private BulletObjectPool bulletPool;
+	private ICharacterState state = new JumpCharacterState(Vector3.zero);
+
+	private void Start()
+	{
+		bulletPool = FindObjectOfType<BulletObjectPool>();
+	}
 
 	public void Update()
 	{
 		JumpInput();
 		MoveInput();
+		ShootInput();
+		CrouchInput();
 
 		UpdateState();
 	}
@@ -29,11 +36,30 @@ public class PlayerControllerStateMachine : MonoBehaviour
 		state = state.Move(inputX);
 	}
 
+	private void ShootInput()
+	{
+		if (Input.GetButtonDown("Fire1"))
+		{
+			state = state.Shoot(bulletPool, transform.position);
+		}
+	}
+
+	private void CrouchInput()
+	{
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			float inputX = Input.GetAxisRaw("Horizontal");
+			state = state.Crouch(inputX);
+		}
+		
+	}
+
 	/// <summary>
 	/// Has to be at the end of an Update()-loop to update the state everywhere correctly.
 	/// </summary>
 	private void UpdateState()
 	{
 		state = state.UpdateState(transform);
+		print(state);
 	}
 }

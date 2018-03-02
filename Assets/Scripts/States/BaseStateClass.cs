@@ -1,29 +1,47 @@
 ﻿using UnityEngine;
-using States;
+//using States;
 
-/// <summary>
-/// Class containing default values for the interface-required functions.
-/// </summary>
-public abstract class BaseStateClass : MonoBehaviour, ICharacterState
+namespace States
 {
-
-	public virtual ICharacterState Jump()
+	/// <summary>
+	/// Class containing default values for the interface-required functions.
+	/// </summary>
+	public abstract class BaseStateClass : ICharacterState
 	{
-		return this;
-	}
+		//"Return this" means that you return which state you are in, ie. which class is being used.
+		public virtual ICharacterState Jump()
+		{
+			return this;
+		}
 
-	public virtual ICharacterState Move(float xDirection)
-	{
-		return this;
-	}
+		public virtual ICharacterState Move(float xDirection)
+		{
+			return this;
+		}
 
-	public virtual ICharacterState UpdateState(Transform transform)
-	{
-		return this;
-	}
+		public virtual ICharacterState Shoot(BulletObjectPool bulletPool, Vector3 position)
+		{
+			var newBullet = bulletPool.CreateBullet();
+			newBullet.transform.position = position;
 
-	public virtual void Shoot()
-	{
-		//TODO: Add default behaviour for spawning a bullet.
+			//TODO: Rotate the bullet depending on which direction you are walking in.
+			if (Input.GetAxisRaw("Horizontal") < 0)
+			{
+				//newBullet.transform.SetPositionAndRotation(this.transform.rotation, Quaternion.EulerRotation();
+			}
+			return this;
+		}
+
+		public virtual ICharacterState Crouch(float initialVelocity)
+		{
+
+			return this;
+		}
+
+		public virtual ICharacterState UpdateState(Transform transform)
+		{
+			return this;
+		}
 	}
 }
+

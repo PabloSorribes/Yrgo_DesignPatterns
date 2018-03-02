@@ -11,7 +11,7 @@ namespace States
 		/// <returns></returns>
 		public override ICharacterState Jump(float jumpForce)
 		{
-			return new AirborneCharacterState(new Vector3(0, jumpForce, 0));
+			return new AirborneCharacterState(new Vector3 (0, jumpForce, 0));
 		}
 
 		// Take the inputed direction and save it to be used in "UpdateState()".

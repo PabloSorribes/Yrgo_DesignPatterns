@@ -9,7 +9,6 @@ public class PlayerControllerStateMachine : MonoBehaviour
 	//This automatically checks if you are airborne or not.
 	private ICharacterState state = new AirborneCharacterState(Vector3.zero);
 	private BulletObjectPool bulletPool;
-
 	public PlayerSettings playerSettings;
 
 	private void Start()
@@ -23,14 +22,15 @@ public class PlayerControllerStateMachine : MonoBehaviour
 		MoveInput();
 		ShootInput();
 		CrouchInput();
-
 		UpdateState();
 	}
 
 	private void JumpInput()
 	{
 		if (Input.GetButtonDown("Jump"))
+		{
 			state = state.Jump(playerSettings.jumpForce);
+		}
 	}
 
 	private void MoveInput()
@@ -54,7 +54,6 @@ public class PlayerControllerStateMachine : MonoBehaviour
 			float inputX = Input.GetAxisRaw("Horizontal");
 			state = state.Crouch(inputX);
 		}
-		
 	}
 
 	/// <summary>

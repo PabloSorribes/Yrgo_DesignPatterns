@@ -24,7 +24,11 @@ namespace States
 		/// <returns></returns>
 		ICharacterState Shoot(BulletObjectPool bulletPool, Vector3 position);
 
-
+		/// <summary>
+		/// Needs <paramref name="initialVelocity"/> to slow down the character when Crouching.
+		/// </summary>
+		/// <param name="initialVelocity"></param>
+		/// <returns></returns>
 		ICharacterState Crouch(float initialVelocity);
 
 		/// <summary>

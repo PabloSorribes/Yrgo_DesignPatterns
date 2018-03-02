@@ -28,6 +28,7 @@ namespace States
 			{
 				return new GroundedCharacterState();
 			}
+
 			return this;
 		}
 	}

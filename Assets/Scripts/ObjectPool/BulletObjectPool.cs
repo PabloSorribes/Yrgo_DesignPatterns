@@ -11,6 +11,7 @@ public class BulletObjectPool : MonoBehaviour {
 
 	private void Start()
 	{
+		//This creates a pre-allocated amount of bullets for the pool to use on the get go.
 		for (int i = 0; i < maxBullets; i++)
 		{
 			var newBullet = CreateBullet();
@@ -43,6 +44,10 @@ public class BulletObjectPool : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Is called by the Bullet.cs when.
+	/// </summary>
+	/// <param name="bullet"></param>
 	public void DestroyBullet(GameObject bullet)
 	{
 		if (freeBullets.Count >= maxBullets)

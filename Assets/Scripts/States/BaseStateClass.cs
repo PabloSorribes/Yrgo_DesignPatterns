@@ -18,6 +18,12 @@ namespace States
 			return this;
 		}
 
+		/// <summary>
+		/// Allow Shooting in every state.
+		/// </summary>
+		/// <param name="bulletPool"></param>
+		/// <param name="position"></param>
+		/// <returns></returns>
 		public virtual ICharacterState Shoot(BulletObjectPool bulletPool, Vector3 position)
 		{
 			var newBullet = bulletPool.CreateBullet();

@@ -33,7 +33,9 @@ namespace States
 			velocity -= GameProperties.Gravity * Time.deltaTime;
 
 			if (transform.position.y <= 0)
+			{
 				return new GroundedCharacterState();
+			}
 
 			return this;
 		}

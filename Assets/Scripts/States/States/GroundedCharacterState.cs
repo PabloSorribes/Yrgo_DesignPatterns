@@ -3,17 +3,15 @@ namespace States
 {
 	public class GroundedCharacterState : BaseStateClass
 	{
-
 		private Vector3 velocity;
-		private float speed = 10;
 
 		/// <summary>
-		/// Sets the new state to "Jump".
+		/// Sets the new state to "Airborne", and executes a jump.
 		/// </summary>
 		/// <returns></returns>
-		public override ICharacterState Jump()
+		public override ICharacterState Jump(float jumpForce)
 		{
-			return new JumpCharacterState(new Vector3(0, 2, 0));
+			return new AirborneCharacterState(new Vector3(0, jumpForce, 0));
 		}
 
 		// Take the inputed direction and save it to be used in "UpdateState()".
@@ -30,7 +28,7 @@ namespace States
 
 		public override ICharacterState UpdateState(Transform transform)
 		{
-			transform.position += velocity * Time.deltaTime * speed;
+			transform.position += velocity * Time.deltaTime;
 			return this;
 		}
 	}

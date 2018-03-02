@@ -2,5 +2,5 @@
 
 public static class GameProperties
 {
-    public static Vector3 Gravity = new Vector3(0, 1, 0);
+    public static Vector3 Gravity = new Vector3(0, 5, 0);
 }

@@ -9,7 +9,7 @@ namespace States
 	public abstract class BaseStateClass : ICharacterState
 	{
 		//"Return this" means that you return which state you are in, ie. which class is being used.
-		public virtual ICharacterState Jump()
+		public virtual ICharacterState Jump(float jumpForce)
 		{
 			return this;
 		}

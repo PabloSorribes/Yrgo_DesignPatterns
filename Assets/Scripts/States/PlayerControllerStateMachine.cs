@@ -6,8 +6,11 @@ using States;
 /// </summary>
 public class PlayerControllerStateMachine : MonoBehaviour
 {
+	//This automatically checks if you are airborne or not.
+	private ICharacterState state = new AirborneCharacterState(Vector3.zero);
 	private BulletObjectPool bulletPool;
-	private ICharacterState state = new JumpCharacterState(Vector3.zero);
+
+	public PlayerSettings playerSettings;
 
 	private void Start()
 	{
@@ -27,13 +30,13 @@ public class PlayerControllerStateMachine : MonoBehaviour
 	private void JumpInput()
 	{
 		if (Input.GetButtonDown("Jump"))
-			state = state.Jump();
+			state = state.Jump(playerSettings.jumpForce);
 	}
 
 	private void MoveInput()
 	{
 		float inputX = Input.GetAxisRaw("Horizontal");
-		state = state.Move(inputX);
+		state = state.Move(inputX * playerSettings.movementSpeed);
 	}
 
 	private void ShootInput()

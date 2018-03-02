@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29917c7297046db9d3feeae40300d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSettings: {fileID: 11400000, guid: 05929bdb7b16c494caa7d4e643126815, type: 2}
 --- !u!4 &1340310488
 Transform:
   m_ObjectHideFlags: 0

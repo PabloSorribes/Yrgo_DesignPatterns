@@ -8,7 +8,7 @@ namespace States
 		/// Something that can happen to a character - i.e. it can jump
 		/// </summary>
 		/// <returns>The new state resulted from the jump event</returns>
-		ICharacterState Jump();
+		ICharacterState Jump(float jumpForce);
 
 		/// <summary>
 		/// Needs a float to return value for usage in moving the character in the states that allow it.

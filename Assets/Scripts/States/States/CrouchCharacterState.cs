@@ -5,8 +5,8 @@ namespace States
 	public class CrouchCharacterState : BaseStateClass
 	{
 		private Vector3 velocity;
-		private float speed = 10;
 
+		//Constructor
 		public CrouchCharacterState (float initialVelocity)
 		{
 			velocity.x = initialVelocity;
@@ -27,7 +27,7 @@ namespace States
 
 		public override ICharacterState UpdateState(Transform transform)
 		{
-			transform.position += velocity * Time.deltaTime * speed;
+			transform.position += velocity * Time.deltaTime;
 
 			if (Input.GetKeyUp(KeyCode.S))
 			{
